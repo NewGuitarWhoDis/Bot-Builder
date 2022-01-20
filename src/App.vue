@@ -1,15 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Nav class="nav"/>
+  <Tabs class="tabs"/>
+  <Sidebar @drop-block="dropblock" class="sidebar"/>
+  <Main />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Nav from './components/nav'
+import Sidebar from './components/sidebar'
+import Tabs from './components/tabs'
+import Main from './components/main'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Nav,
+    Tabs,
+    Sidebar,
+    Main,
+  },
+  methods: {
+    dropblock(String) {
+      console.log(String)
+      document.getElementById("main-content").innerHTML += "<" + String + " />";
+    }
   }
 }
 </script>
@@ -20,7 +34,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: white;
 }
 </style>
